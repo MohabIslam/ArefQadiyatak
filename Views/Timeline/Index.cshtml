@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "الخط الزمني للقضية الفلسطينية";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container my-5" dir="rtl">
+    <h2 class="text-center mb-4 fw-bold">📜 الخط الزمني للقضية الفلسطينية</h2>
+
+    <div class="timeline">
+        @{
+            var events = new[]
+            {
+        new {
+        Year = "1917", Title = "وعد بلفور",
+        Desc = "تصريح بريطاني يدعم إقامة وطن قومي لليهود في فلسطين.",
+        Images = new[] { "balfour1.jpg", "balfour2.jpg" }
+        },
+        new {
+        Year = "1948", Title = "النكبة",
+        Desc = "تهجير أكثر من 750 ألف فلسطيني وإعلان قيام دولة الاحتلال.",
+        Images = new[] { "nakba1.jpg", "nakba2.jpg" ,"nakba3.jpg" }
+        },
+        new {
+        Year = "1967", Title = "النكسة",
+        Desc = "احتلال الضفة الغربية وقطاع غزة والقدس الشرقية.",
+        Images = new[] { "naksa1.jpg", "naksa2.jpg" }
+        },
+        new {
+        Year = "1987", Title = "انتفاضة الحجارة",
+        Desc = "أول انتفاضة شعبية فلسطينية ضد الاحتلال.",
+        Images = new[] { "intifada1-1.jpg", "intifada1-2.jpg" }
+        },
+        new {
+        Year = "2000", Title = "انتفاضة الأقصى",
+        Desc = "اندلاع انتفاضة جديدة بعد اقتحام شارون للمسجد الأقصى.",
+        Images = new[] { "intifada2-1.jpg", "intifada2-2.jpg" }
+        },
+        new {
+        Year = "2008", Title = "حرب غزة الأولى",
+        Desc = "بدء العدوان على غزة وسقوط آلاف الشهداء.",
+        Images = new[] { "gaza2008-1.jpg", "gaza2008-2.jpg" }
+        },
+        new {
+        Year = "2014", Title = "العدوان على غزة",
+        Desc = "عدوان استمر 51 يومًا أسفر عن دمار كبير.",
+        Images = new[] { "gaza2014-1.jpg", "gaza2014-2.jpg" }
+        },
+        new {
+        Year = "2021", Title = "معركة سيف القدس",
+        Desc = "هبة فلسطينية شاملة نصرة للقدس وغزة.",
+        Images = new[] { "sword1.jpg", "sword2.jpg" }
+        },
+        new {
+        Year = "2023", Title = "تصاعد التهويد",
+        Desc = "محاولات مستمرة لتهويد القدس والضفة.",
+        Images = new[] { "settlements1.jpg", "settlements2.jpg" }
+        },
+        new {
+        Year = "2024", Title = "الإبادة في غزة",
+        Desc = "عدوان غير مسبوق أدى لمجازر ودمار شامل.",
+        Images = new[] { "gaza2024-1.jpg", "gaza2024-2.jpg" }
+        }
+        };
+        }
+
+        @foreach (var e in events)
+        {
+            <div class="card my-4 shadow-sm border-end border-4 border-success">
+                <div class="card-body text-end">
+                    <h5 class="card-title text-success fw-bold">@e.Year - @e.Title</h5>
+                    <p class="card-text">@e.Desc</p>
+
+                    <div class="row">
+                        @foreach (var img in e.Images)
+                        {
+                            <div class="col-md-6 col-12 mb-3">
+                                <img src="~/images/@img" class="img-fluid rounded shadow-sm" style="height: 250px; object-fit: cover;" alt="@e.Title">
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
